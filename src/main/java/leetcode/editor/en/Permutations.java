@@ -13,11 +13,11 @@ class Solution46 {
         int length = nums.length;
         List<List<Integer>> result = new ArrayList<>();
         boolean[] used = new boolean[length];
-        backrack(result , new ArrayDeque<Integer>() , nums , used);
+        backtrack(result , new ArrayDeque<Integer>() , nums , used);
         return result;
     }
 
-    private void backrack(List<List<Integer>> list , Deque<Integer> path , int[] nums ,boolean[] used ){
+    private void backtrack(List<List<Integer>> list , Deque<Integer> path , int[] nums ,boolean[] used ){
         if(path.size() == nums.length){
             list.add(new ArrayList<>(path));
             return;
@@ -28,7 +28,7 @@ class Solution46 {
                 }
                 path.add(nums[i]);
                 used[i] = true;
-                backrack(list ,path , nums , used );
+                backtrack(list ,path , nums , used );
                 path.removeLast();
                 used[i] = false;
             }
