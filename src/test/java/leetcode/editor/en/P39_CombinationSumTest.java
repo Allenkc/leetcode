@@ -35,4 +35,18 @@ public class P39_CombinationSumTest {
 
         Assertions.assertIterableEquals(answer, expect);
     }
+
+    @Test
+    public void testCase2(){
+
+        List<List<Integer>> answer = solution.combinationSum(new int[]{2,3,5} , 8);
+
+        List<List<Integer>> expect = new ArrayList<>();
+        expect.add(new ArrayList<>(Arrays.asList(2,2,2,2)));
+        expect.add(new ArrayList<>(Arrays.asList(2,3,3)));
+        expect.add(new ArrayList<>(Arrays.asList(3,5)));
+
+        Assertions.assertIterableEquals(answer, expect);
+
+    }
 }

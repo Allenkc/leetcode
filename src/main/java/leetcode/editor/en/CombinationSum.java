@@ -4,6 +4,7 @@ import java.util.*;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 public class CombinationSum {
+//    class Solution {
     public List<List<Integer>> combinationSum(int[] candidates, int target) {
         List<List<Integer>> result = new ArrayList<>();
         //Use a stack to maintain the wip list
@@ -27,8 +28,7 @@ public class CombinationSum {
 
                 path.add(candidates[i]);
                 backtrack(result , path ,candidates , remain -  candidates[i] , i);
-
-                path.remove();
+                path.removeLast();
             }
         }
 
