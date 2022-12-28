@@ -12,35 +12,21 @@ import java.util.List;
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class P239_SlidingWindowMaximunTest {
 
-    private Solution239 solution;
+    private Solution227 solution;
 
     @BeforeAll
     public void setSolution() {
-        solution = new Solution239();
+        solution = new Solution227();
     }
 
     @Test
     public void testCase1(){
 
-        int[] answer = solution.maxSlidingWindow(new int[]{1,-1} , 1);
+        int answer = solution.calculate("42");
 
-        int[] expect = new int[]{1,-1};
+        int expect = 42;
 
-        Assertions.assertArrayEquals(answer, expect);
+        Assertions.assertEquals(answer, expect);
     }
 
-    @Test
-    public void testCase2(){
-        /*
-        nums = [7,2,4]
-        k = 2
-        * */
-
-        int[] answer = solution.maxSlidingWindow(new int[]{7, 2, 4} , 2);
-
-        int[] expect = new int[]{7,4};
-
-        Assertions.assertArrayEquals(answer, expect);
-
-    }
 }
