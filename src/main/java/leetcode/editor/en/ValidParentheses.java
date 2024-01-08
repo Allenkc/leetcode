@@ -6,7 +6,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 
 //leetcode submit region begin(Prohibit modification and deletion)
-class Solution {
+class Solution20 {
     public boolean isValid(String s) {
 
         if(s.length()%2 != 0){

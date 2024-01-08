@@ -2,8 +2,6 @@ package leetcode.editor.en;
 
 //P362_Design Hit Counter
 
-import javafx.util.Pair;
-
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Queue;
@@ -12,33 +10,33 @@ import java.util.Queue;
 class HitCounter {
 
     private int total = 0;
-    private Deque<Pair<Integer,Integer>> hitsQueue = new ArrayDeque<>();
+    private Deque<int[]> hitsQueue = new ArrayDeque<>();
 
     public HitCounter() {
 
     }
     
     public void hit(int timestamp) {
-        if(hitsQueue.isEmpty() || hitsQueue.getLast().getKey() != timestamp ){
+        if(hitsQueue.isEmpty() || hitsQueue.getLast()[0] != timestamp ){
             // add a new pair to the hits dequeue
-            hitsQueue.add(new Pair<>(timestamp , 1));
+            hitsQueue.add(new int[]{timestamp , 1});
         }else{
             // multiple hits at the same time
             // Update the count of latest timestamp by incrementing the count by 1
-            int currentCount = hitsQueue.getLast().getValue();
+            int currentCount = hitsQueue.getLast()[1];
             currentCount ++;
 
             hitsQueue.removeLast();
-            hitsQueue.addLast(new Pair<>(timestamp ,currentCount ));
+            hitsQueue.addLast(new int[]{timestamp ,currentCount });
         }
         total++;
     }
     
     public int getHits(int timestamp) {
         while(!hitsQueue.isEmpty()){
-            int diff = timestamp - hitsQueue.peek().getKey();
+            int diff = timestamp - hitsQueue.peek()[0];
             if(diff >= 300){
-                int counts = hitsQueue.remove().getValue();
+                int counts = hitsQueue.remove()[1];
                 total -= counts;
             }else{
                 break;

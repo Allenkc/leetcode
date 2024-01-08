@@ -14,7 +14,7 @@ package leetcode.editor.en;
  * ListNode(int val, ListNode next) { this.val = val; this.next = next; }
  * }
  */
-class Solution {
+class Solution61 {
     public ListNode rotateRight(ListNode head, int k) {
 
         if (head == null || head.next == null) {
