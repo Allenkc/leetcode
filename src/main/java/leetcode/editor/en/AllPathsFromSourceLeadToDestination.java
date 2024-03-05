@@ -38,7 +38,8 @@ class Solution1059 {
         }
 
         if(graph.get(current) == null || graph.get(current).isEmpty()){
-            states.computeIfAbsent(current , val -> Color.BLACK);
+
+            states.computeIfAbsent(current , val -> Color.BLACK); // not necessary line of code
             return current == this.dest;
         }
 
